@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCRM - Never lose touch with people who matter</title>
+    <meta name="description" content="MyCRM is a beautiful, personal relationship management tool. Keep track of friendships, networking, and personal connections.">
+    
+    <!-- Google Fonts: Anime Style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Mochiy+Pop+One&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Aurora Background -->
+    <div class="aurora-bg">
+        <div class="aurora-blob blob-1"></div>
+        <div class="aurora-blob blob-2"></div>
+        <div class="aurora-blob blob-3"></div>
+        <div class="aurora-blob blob-4"></div>
+        <div class="aurora-blob blob-5"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="assets/logo.png" alt="MyCRM Logo" class="logo-img"> MyCRM
+            </a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#" class="btn-ghost">Log In</a>
+                <a href="#cta" class="btn-primary">Get Started</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="ph-light ph-list"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu">
+        <div class="mobile-nav-links">
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#faq">FAQ</a>
+            <a href="#" class="btn-ghost">Log In</a>
+            <a href="#cta" class="btn-primary">Get Started</a>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="badge">
+                        <span class="badge-dot"></span> New: AI-Powered Insights
+                    </div>
+                    <h1 class="fade-up">Never lose touch with people who matter.</h1>
+                    <p class="fade-up delay-1">Build stronger, deeper relationships. MyCRM helps you remember the little details, track interactions, and stay connected with your personal and professional network.</p>
+                    <div class="hero-buttons fade-up delay-2">
+                        <a href="#cta" class="btn-primary btn-large">Start for Free</a>
+                        <a href="#demo" class="btn-secondary btn-large"><i class="ph-light ph-play-circle"></i> View Demo</a>
+                    </div>
+                    <div class="trusted-by fade-up delay-3">
+                        <p>Trusted by 10,000+ connectors</p>
+                        <div class="user-avatars">
+                            <img src="assets/avatar.png" alt="User">
+                            <div class="avatar-placeholder bg-peach">AL</div>
+                            <div class="avatar-placeholder bg-mint">SJ</div>
+                            <div class="avatar-placeholder bg-lavender">EK</div>
+                            <div class="avatar-more">+2k</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual fade-in delay-2">
+                    <div class="glass-card visual-card float-anim-slow">
+                        <img src="assets/hero.png" alt="MyCRM App Experience" class="hero-image">
+                        <div class="floating-badge badge-top-right float-anim">
+                            <i class="ph-light ph-heart" style="color: var(--pink)"></i> Relationship Score: 98
+                        </div>
+                        <div class="floating-badge badge-bottom-left float-anim-alt">
+                            <i class="ph-light ph-calendar-star" style="color: var(--blue)"></i> Sarah's Birthday tomorrow!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Dashboard Preview -->
+        <section class="dashboard-preview" id="demo">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2>Your relationships at a glance</h2>
+                    <p>A beautiful, intuitive dashboard that makes managing your network a joy, not a chore.</p>
+                </div>
+                
+                <div class="dashboard-mockup glass-panel float-anim-very-slow">
+                    <div class="mockup-header">
+                        <div class="window-controls">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="search-bar">
+                            <i class="ph-light ph-magnifying-glass"></i>
+                            <span>Search contacts, notes, or tags...</span>
+                        </div>
+                        <div class="user-profile">
+                            <img src="assets/avatar.png" alt="Profile">
+                        </div>
+                    </div>
+                    <div class="mockup-body">
+                        <div class="mockup-sidebar">
+                            <div class="sidebar-item active"><i class="ph-light ph-squares-four"></i> Dashboard</div>
+                            <div class="sidebar-item"><i class="ph-light ph-users"></i> Contacts</div>
+                            <div class="sidebar-item"><i class="ph-light ph-calendar"></i> Events</div>
+                            <div class="sidebar-item"><i class="ph-light ph-chart-line-up"></i> Insights</div>
+                            <div class="sidebar-item"><i class="ph-light ph-gear"></i> Settings</div>
+                        </div>
+                        <div class="mockup-content">
+                            <div class="stats-row">
+                                <div class="stat-card">
+                                    <div class="stat-icon bg-blue-soft"><i class="ph-light ph-users"></i></div>
+                                    <div class="stat-info">
+                                        <span class="stat-label">Total Contacts</span>
+                                        <span class="stat-value">248</span>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon bg-pink-soft"><i class="ph-light ph-hand-waving"></i></div>
+                                    <div class="stat-info">
+                                        <span class="stat-label">To Follow Up</span>
+                                        <span class="stat-value">12</span>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon bg-mint-soft"><i class="ph-light ph-star"></i></div>
+                                    <div class="stat-info">
+                                        <span class="stat-label">Health Score</span>
+                                        <span class="stat-value">92%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="content-row">
+                                <div class="recent-interactions">
+                                    <h3>Needs Attention</h3>
+                                    <div class="contact-list">
+                                        <div class="contact-list-item">
+                                            <div class="avatar-placeholder bg-peach">AL</div>
+                                            <div class="contact-details">
+                                                <h4>Alex Lin</h4>
+                                                <p>Haven't spoken in 3 months</p>
+                                            </div>
+                                            <button class="btn-micro">Reach Out</button>
+                                        </div>
+                                        <div class="contact-list-item">
+                                            <div class="avatar-placeholder bg-lavender">MJ</div>
+                                            <div class="contact-details">
+                                                <h4>Marcus Johnson</h4>
+                                                <p>Birthday coming up in 2 days</p>
+                                            </div>
+                                            <button class="btn-micro">Set Reminder</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="upcoming-events">
+                                    <h3>Memory Vault</h3>
+                                    <div class="memory-card">
+                                        <div class="memory-header">
+                                            <i class="ph-light ph-coffee"></i> Coffee with Emma
+                                        </div>
+                                        <p class="memory-text">Discussed her new startup idea. Mentioned she loves oat milk lattes and reads sci-fi.</p>
+                                        <span class="memory-date">Oct 12, 2026</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section (Slanted) -->
+        <section class="features slanted-section" id="features">
+            <div class="container slanted-content">
+                <div class="section-header text-center">
+                    <h2>Everything you need to be a better friend</h2>
+                    <p>Powerful tools hidden behind a beautiful, simple interface.</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card glass-card hover-lift fade-up">
+                        <div class="feature-icon"><i class="ph-light ph-address-book"></i></div>
+                        <h3>Smart Contact Management</h3>
+                        <p>Organize people by groups, tags, and closeness. Never lose a phone number or email again.</p>
+                    </div>
+                    <div class="feature-card glass-card hover-lift fade-up delay-1">
+                        <div class="feature-icon"><i class="ph-light ph-clock-counter-clockwise"></i></div>
+                        <h3>Relationship Timeline</h3>
+                        <p>Visualize your entire history with someone. Track meetings, calls, and important milestones effortlessly.</p>
+                    </div>
+                    <div class="feature-card glass-card hover-lift fade-up delay-2">
+                        <div class="feature-icon"><i class="ph-light ph-brain"></i></div>
+                        <h3>AI Reminder Suggestions</h3>
+                        <p>Our smart system notices when you haven't spoken to someone important and gently nudges you.</p>
+                    </div>
+                    <div class="feature-card glass-card hover-lift fade-up">
+                        <div class="feature-icon"><i class="ph-light ph-book-open-text"></i></div>
+                        <h3>Memory Vault</h3>
+                        <p>Save notes on their kids' names, favorite coffee, and allergies. Show them you truly listen.</p>
+                    </div>
+                    <div class="feature-card glass-card hover-lift fade-up delay-1">
+                        <div class="feature-icon"><i class="ph-light ph-confetti"></i></div>
+                        <h3>Event Tracking</h3>
+                        <p>Automatic reminders for birthdays, anniversaries, and personal milestones so you're always on time.</p>
+                    </div>
+                    <div class="feature-card glass-card hover-lift fade-up delay-2">
+                        <div class="feature-icon"><i class="ph-light ph-heartbeat"></i></div>
+                        <h3>Friendship Health Score</h3>
+                        <p>Get a pulse on your network's health. See who you're growing closer to and who needs a text.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works" id="how-it-works">
+            <div class="container">
+                <div class="split-layout align-center">
+                    <div class="content-side fade-right">
+                        <h2>How MyCRM works</h2>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-number">01</div>
+                                <div class="step-content">
+                                    <h3>Import or Add Contacts</h3>
+                                    <p>Sync from your phone or add people manually. Tag them by context (work, college, family).</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">02</div>
+                                <div class="step-content">
+                                    <h3>Log Interactions & Notes</h3>
+                                    <p>After a catch-up, quickly jot down what you discussed. The Memory Vault securely stores it.</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">03</div>
+                                <div class="step-content">
+                                    <h3>Set Desired Frequency</h3>
+                                    <p>Decide how often you want to keep in touch. Once a week? Twice a year? We'll handle the math.</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">04</div>
+                                <div class="step-content">
+                                    <h3>Get Smart Nudges</h3>
+                                    <p>Receive a weekly digest of who to reach out to and what you talked about last time.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="visual-side fade-left">
+                        <div class="glass-card decorative-card float-anim-slow">
+                            <div class="pulse-ring"></div>
+                            <i class="ph-light ph-bell-ringing massive-icon" style="color: var(--pink)"></i>
+                            <div class="notification-mockup">
+                                <strong>Smart Nudge</strong>
+                                <span>It's been 6 months since you grabbed coffee with David. Want to say hi?</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Section (Slanted Alt) -->
+        <section class="why-choose slanted-section-alt">
+            <div class="container text-center slanted-content-alt">
+                <h2 class="fade-up">Designed for humans, not salespeople</h2>
+                <p class="subtitle fade-up delay-1">Traditional CRMs are built for closing deals. MyCRM is built for opening hearts.</p>
+                
+                <div class="benefits-row fade-up delay-2">
+                    <div class="benefit-item glass-card hover-lift">
+                        <i class="ph-light ph-shield-check" style="color: var(--mint); font-size: 3rem;"></i>
+                        <h4>100% Private</h4>
+                        <p>Your data is encrypted. We don't read your notes or sell your connections.</p>
+                    </div>
+                    <div class="benefit-item glass-card hover-lift">
+                        <i class="ph-light ph-devices" style="color: var(--blue); font-size: 3rem;"></i>
+                        <h4>Everywhere You Go</h4>
+                        <p>Seamlessly syncs across your phone, tablet, and desktop browser.</p>
+                    </div>
+                    <div class="benefit-item glass-card hover-lift">
+                        <i class="ph-light ph-sparkle" style="color: var(--peach); font-size: 3rem;"></i>
+                        <h4>Joyful to Use</h4>
+                        <p>A beautiful UI that feels like a premium consumer app, not corporate software.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2>Loved by thoughtful people</h2>
+                </div>
+                
+                <div class="testimonial-grid">
+                    <div class="testimonial-card glass-card hover-lift fade-up">
+                        <div class="rating"><i class="ph-light ph-star"></i><i class="ph-light ph-star"></i><i class="ph-light ph-star"></i><i class="ph-light ph-star"></i><i class="ph-light ph-star"></i></div>
+                        <p class="quote">"As an introverted designer, I used to lose touch with college friends all the time. MyCRM changed my life. Now I'm the friend who always remembers birthdays and asks about their dog."</p>
+                        <div class="author">
+                            <div class="avatar-placeholder bg-peach">S</div>
+                            <div class="author-info">
+                                <strong>Sophie Chen</strong>
+                                <span>UX Designer</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card glass-card hover-lift fade-up delay-1">
+                        <div class="rating"><i class="ph-light ph-star"></i><i class="ph-light ph-star"></i><i class="ph-light ph-star"></i><i class="ph-light ph-star"></i><i class="ph-light ph-star"></i></div>
+                        <p class="quote">"I manage a large network of freelance creatives. This tool is infinitely better than my messy spreadsheets. It's gorgeous, fast, and exactly what I needed."</p>
+                        <div class="author">
+                            <div class="avatar-placeholder bg-mint">J</div>
+                            <div class="author-info">
+                                <strong>James Miller</strong>
+                                <span>Agency Director</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card glass-card hover-lift fade-up delay-2">
+                        <div class="rating"><i class="ph-light ph-star"></i><i class="ph-light ph-star"></i><i class="ph-light ph-star"></i><i class="ph-light ph-star"></i><i class="ph-light ph-star"></i></div>
+                        <p class="quote">"The Memory Vault is genius. When I asked a client about his daughter's piano recital (which I noted down 3 months ago), he was so touched. It builds genuine trust."</p>
+                        <div class="author">
+                            <img src="assets/avatar.png" alt="Elena" class="author-img">
+                            <div class="author-info">
+                                <strong>Elena Rodriguez</strong>
+                                <span>Freelance Consultant</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq" id="faq">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                
+                <div class="faq-container glass-panel">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Is my data safe and private?
+                            <i class="ph-light ph-caret-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Absolutely. We use end-to-end encryption for all your notes and contacts. We do not sell data to third parties, and our business model relies entirely on premium subscriptions, not ads.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Can I import my contacts from Google or Apple?
+                            <i class="ph-light ph-caret-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes! MyCRM supports one-click syncing with Google Contacts, Apple Contacts (via iCloud), and standard CSV/vCard imports.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Is there a mobile app?
+                            <i class="ph-light ph-caret-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>MyCRM is currently a Progressive Web App (PWA). This means you can add it to your phone's home screen and it will look and act exactly like a native app, complete with push notifications.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Is it free to use?
+                            <i class="ph-light ph-caret-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We offer a generous free tier that allows up to 100 contacts and basic reminders. For unlimited contacts, advanced AI insights, and multiple tags, we offer a Pro plan for just $4/month.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section" id="cta">
+            <div class="container">
+                <div class="cta-box glass-panel float-anim-slow">
+                    <h2>Ready to be a super-connector?</h2>
+                    <p>Join thousands of others who are building deeper, more meaningful relationships today.</p>
+                    <div class="cta-form">
+                        <input type="email" placeholder="Enter your email address" class="glass-input">
+                        <button class="btn-primary">Get Started — It's Free</button>
+                    </div>
+                    <p class="cta-subtext">No credit card required. Setup takes 2 minutes.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img src="assets/logo.png" alt="MyCRM Logo" class="logo-img"> MyCRM
+                    </a>
+                    <p>The personal relationship manager for humans. Beautiful, private, and simple.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="ph-light ph-twitter-logo"></i></a>
+                        <a href="#"><i class="ph-light ph-instagram-logo"></i></a>
+                        <a href="#"><i class="ph-light ph-github-logo"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How it Works</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Download PWA</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Networking Tips</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MyCRM Inc. All rights reserved. Designed with <i class="ph-light ph-heart" style="color: var(--pink)"></i> for better relationships.</p>
+                <p class="github-badge"><i class="ph-light ph-github-logo"></i> Optimized for GitHub Pages</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
