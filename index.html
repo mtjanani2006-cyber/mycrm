@@ -9,7 +9,7 @@
     <!-- Google Fonts: Premium Modern -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Magra:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Magra:wght@400;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
     
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -18,23 +18,44 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Themed Premium Preloader -->
+    <!-- Cinematic Premium Preloader -->
     <div class="preloader" id="preloader">
-        <!-- Themed floating orbs matching site background -->
+        <!-- Drifting aurora blobs -->
         <div class="pre-blob pre-blob-1"></div>
         <div class="pre-blob pre-blob-2"></div>
         <div class="pre-blob pre-blob-3"></div>
-
+        <!-- Floating particles -->
+        <div class="pre-particles">
+            <span class="particle p1"></span>
+            <span class="particle p2"></span>
+            <span class="particle p3"></span>
+            <span class="particle p4"></span>
+            <span class="particle p5"></span>
+            <span class="particle p6"></span>
+            <span class="particle p7"></span>
+            <span class="particle p8"></span>
+        </div>
         <div class="loader-content">
-            <div class="loader-glass-orb">
-                <div class="loader-brand-icon">M</div>
-                <div class="loader-ring-outer"></div>
-                <div class="loader-ring-inner"></div>
+            <!-- Triple orbital ring animation -->
+            <div class="loader-orbit-wrapper">
+                <div class="orbit orbit-1"></div>
+                <div class="orbit orbit-2"></div>
+                <div class="orbit orbit-3"></div>
+                <div class="loader-logo-box">
+                    <span class="loader-logo-m">M</span>
+                </div>
             </div>
-            <div class="loader-text-wrapper">
-                <span class="loader-word">MyCRM</span>
+            <!-- Letter-by-letter brand name reveal -->
+            <div class="loader-brand-name">
+                <span class="l-char" style="--i:0">M</span><span class="l-char" style="--i:1">y</span><span class="l-char" style="--i:2">C</span><span class="l-char" style="--i:3">R</span><span class="l-char" style="--i:4">M</span>
             </div>
-            <div class="loader-tagline">Managing what matters</div>
+            <div class="loader-sub">Your personal relationship OS</div>
+            <!-- Animated dots -->
+            <div class="loader-dots">
+                <span class="dot d1"></span>
+                <span class="dot d2"></span>
+                <span class="dot d3"></span>
+            </div>
         </div>
     </div>
 
