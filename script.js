@@ -1,37 +1,32 @@
-// Themed Premium Preloader — Reliable on All Devices
+// Bulletproof Preloader — Works on ALL devices, even cached pages
 (function initPreloader() {
-    // Run as early as possible — no waiting for load events
     var preloader = document.getElementById('preloader');
     if (!preloader) return;
 
-    // Lock scroll while loader is visible
+    // Lock scroll on both html and body (mobile Safari needs both)
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+
+    var dismissed = false;
 
     function dismissLoader() {
+        if (dismissed) return; // prevent double-fire
+        dismissed = true;
         preloader.classList.add('loaded');
-        // Unlock scroll after the CSS transition finishes (0.9s)
+        // Wait for CSS transition (1s) then fully remove from layout
         setTimeout(function () {
             document.body.style.overflow = '';
-            preloader.style.display = 'none'; // fully hide so it never blocks taps
-        }, 950);
+            document.documentElement.style.overflow = '';
+            preloader.style.display = 'none';
+        }, 1100);
     }
 
-    // Show loader for at least 1.8 seconds — then check if page is ready
-    var minTimer = false;
-    var pageReady = false;
+    // PRIMARY: dismiss after 2.2 seconds — no dependency on window.load
+    // This is 100% reliable on mobile regardless of caching
+    setTimeout(dismissLoader, 2200);
 
-    setTimeout(function () {
-        minTimer = true;
-        if (pageReady) dismissLoader();
-    }, 1800);
-
-    window.addEventListener('load', function () {
-        pageReady = true;
-        if (minTimer) dismissLoader();
-    });
-
-    // Safety fallback: always dismiss after 4s no matter what
-    setTimeout(dismissLoader, 4000);
+    // BACKUP: always dismiss after 5s no matter what
+    setTimeout(dismissLoader, 5000);
 })();
 
 

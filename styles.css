@@ -1384,3 +1384,40 @@ body:hover .cursor-dot, body:hover .cursor-glow {
     to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ==========================================================================
+   Mobile Optimizations for Preloader
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Reduce blur filter cost on mobile GPUs */
+    .pre-blob { filter: blur(35px); }
+
+    /* Fewer particles visible on small screens */
+    .p3, .p5, .p7 { display: none; }
+
+    /* Simplify orb animation to reduce repaints */
+    .loader-logo-box {
+        animation: orb-breathe-simple 3s ease-in-out infinite alternate;
+    }
+
+    /* Smaller orbit rings on mobile */
+    .loader-orbit-wrapper {
+        width: clamp(90px, 28vw, 120px);
+        height: clamp(90px, 28vw, 120px);
+    }
+
+    /* Tighter font sizes */
+    .loader-brand-name {
+        font-size: clamp(1.6rem, 8vw, 2.2rem);
+        letter-spacing: 0.1em;
+    }
+
+    .loader-sub {
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+    }
+}
+
+@keyframes orb-breathe-simple {
+    0%   { transform: translateY(0px); }
+    100% { transform: translateY(-8px); }
+}
