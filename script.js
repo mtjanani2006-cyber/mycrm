@@ -1,9 +1,31 @@
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
+    // Premium Preloader Logic
     const preloader = document.querySelector('.preloader');
-    if (preloader) {
-        setTimeout(() => {
-            preloader.classList.add('fade-out');
-        }, 800); // 800ms delay to show off the premium loader
+    const progressBar = document.querySelector('.loader-progress-bar');
+    const percentageText = document.querySelector('.loader-percentage');
+    
+    if (preloader && progressBar && percentageText) {
+        let progress = 0;
+        document.body.style.overflow = 'hidden';
+
+        const interval = setInterval(() => {
+            progress += Math.floor(Math.random() * 10) + 5;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(interval);
+                
+                progressBar.style.width = '100%';
+                percentageText.innerText = '100%';
+                
+                setTimeout(() => {
+                    preloader.classList.add('slide-up');
+                    document.body.style.overflow = '';
+                }, 400);
+            } else {
+                progressBar.style.width = progress + '%';
+                percentageText.innerText = progress + '%';
+            }
+        }, 80);
     }
 });
 
