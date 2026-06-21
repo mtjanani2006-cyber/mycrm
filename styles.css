@@ -59,7 +59,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Magra', sans-serif;
     line-height: 1.3;
     letter-spacing: -0.01em;
     font-weight: normal; /* Mochiy is bold by default */
@@ -262,6 +262,12 @@ button {
     font-size: 1.15rem;
 }
 
+.cta-box {
+    padding: 100px 60px;
+    text-align: center;
+    position: relative;
+}
+
 .btn-micro {
     padding: 6px 14px;
     font-size: 0.9rem;
@@ -306,7 +312,7 @@ button {
     align-items: center;
     gap: 12px;
     font-size: 1.5rem;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Magra', sans-serif;
     color: var(--text-main);
 }
 
@@ -384,7 +390,7 @@ button {
     gap: 32px;
     text-align: center;
     font-size: 1.8rem;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Magra', sans-serif;
 }
 
 /* ==========================================================================
@@ -656,7 +662,7 @@ button {
 }
 
 .stat-label { font-size: 0.9rem; color: var(--text-muted); font-weight: 700;}
-.stat-value { font-size: 1.8rem; font-family: 'Space Grotesk', sans-serif; }
+.stat-value { font-size: 1.8rem; font-family: 'Magra', sans-serif; }
 
 .content-row {
     display: grid;
@@ -767,7 +773,7 @@ button {
 
 .step-number {
     font-size: 1.5rem;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Magra', sans-serif;
     color: var(--mint);
     text-shadow: 0 2px 10px rgba(168, 230, 207, 0.5);
 }
@@ -782,6 +788,35 @@ button {
     align-items: center;
     justify-content: center;
     position: relative;
+}
+
+.floating-img {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.85;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
+    transition: transform 0.2s ease-out;
+    border-radius: var(--radius-md);
+}
+
+.abstract-img {
+    width: 250px;
+    top: -50px;
+    right: -50px;
+    animation: float-large 10s ease-in-out infinite alternate;
+}
+
+.ui-img {
+    width: 350px;
+    bottom: -80px;
+    left: -80px;
+    animation: float-large 12s ease-in-out infinite alternate-reverse;
+}
+
+.parallax-item {
+    position: relative;
+    z-index: 2;
 }
 
 .massive-icon {
@@ -817,7 +852,7 @@ button {
 }
 
 .notification-mockup strong {
-    display: block; margin-bottom: 8px; color: var(--pink); font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem;
+    display: block; margin-bottom: 8px; color: var(--pink); font-family: 'Magra', sans-serif; font-size: 1.1rem;
 }
 
 /* ==========================================================================
@@ -865,7 +900,7 @@ button {
 .author { display: flex; align-items: center; gap: 20px; }
 .author-img, .avatar-placeholder { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
 .testimonial-card:hover .author-img, .testimonial-card:hover .avatar-placeholder { transform: scale(1.1) rotate(-3deg); }
-.author-info strong { display: block; font-size: 1.05rem; font-family: 'Space Grotesk', sans-serif;}
+.author-info strong { display: block; font-size: 1.05rem; font-family: 'Magra', sans-serif;}
 .author-info span { font-size: 0.9rem; color: var(--text-muted); }
 
 /* ==========================================================================
@@ -934,7 +969,7 @@ footer {
 .social-links { display: flex; gap: 20px; font-size: 1.8rem; }
 .social-links a:hover { color: var(--pink); transform: translateY(-3px); display: inline-block; transition: var(--transition-fast);}
 
-.footer-links h4 { margin-bottom: 32px; font-size: 1.3rem; font-family: 'Space Grotesk', sans-serif;}
+.footer-links h4 { margin-bottom: 32px; font-size: 1.3rem; font-family: 'Magra', sans-serif;}
 .footer-links ul li { margin-bottom: 16px; }
 .footer-links a { color: var(--text-muted); font-size: 1.05rem; font-weight: 600;}
 .footer-links a:hover { color: var(--pink); }
@@ -1154,7 +1189,7 @@ body:hover .cursor-dot, body:hover .cursor-glow {
 }
 
 .loader-text {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Magra', sans-serif;
     font-size: 1.2rem;
     font-weight: 700;
     background: linear-gradient(90deg, var(--pink), var(--blue), var(--mint), var(--pink));

@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 8. Background Floating Shapes Parallax
-    const shapes = document.querySelectorAll('.floating-shape');
+    const shapes = document.querySelectorAll('.floating-shape, .parallax-img, .parallax-item');
     if (shapes.length > 0) {
         window.addEventListener('mousemove', (e) => {
             const mouseX = e.clientX / window.innerWidth;
@@ -183,10 +183,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
             shapes.forEach(shape => {
                 const speed = parseFloat(shape.getAttribute('data-speed')) || 1;
-                const x = (mouseX * 50 * speed);
-                const y = (mouseY * 50 * speed);
-                
-                shape.style.transform = `translate(${x}px, ${y}px)`;
+                // Add a slight delay for parallax-img to feel heavier
+                if(shape.classList.contains('parallax-img')) {
+                    shape.style.transform = `translate(${mouseX * 30 * speed}px, ${mouseY * 30 * speed}px)`;
+                    shape.style.transition = 'transform 0.8s cubic-bezier(0.23, 1, 0.32, 1)';
+                } else if(shape.classList.contains('parallax-item')) {
+                    shape.style.transform = `translate(${mouseX * 15 * speed}px, ${mouseY * 15 * speed}px)`;
+                    shape.style.transition = 'transform 0.4s ease-out';
+                } else {
+                    const x = (mouseX * 50 * speed);
+                    const y = (mouseY * 50 * speed);
+                    shape.style.transform = `translate(${x}px, ${y}px)`;
+                }
             });
         });
     }
