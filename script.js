@@ -162,14 +162,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const interactiveElements = document.querySelectorAll('a, button, .sidebar-item, .contact-list-item');
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
-                cursorDot.style.transform = 'translate(-50%, -50%) scale(1.5)';
-                cursorGlow.style.transform = 'translate(-50%, -50%) scale(1.5)';
-                cursorGlow.style.backgroundColor = 'rgba(168, 230, 207, 0.5)'; // Mint
+                cursorDot.style.transform = 'translate(-50%, -50%) scale(2)';
+                cursorGlow.style.transform = 'translate(-50%, -50%) scale(2)';
+                cursorGlow.style.opacity = '0.6';
             });
             el.addEventListener('mouseleave', () => {
                 cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
                 cursorGlow.style.transform = 'translate(-50%, -50%) scale(1)';
-                cursorGlow.style.backgroundColor = 'var(--pink-soft)';
+                cursorGlow.style.opacity = '0.3';
             });
         });
     }

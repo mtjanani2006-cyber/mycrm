@@ -28,9 +28,9 @@
     --transition-fast: 0.2s ease;
     --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     
-    --radius-sm: 8px;
-    --radius-md: 20px;
-    --radius-lg: 32px;
+    --radius-sm: 12px;
+    --radius-md: 24px;
+    --radius-lg: 40px;
     --radius-pill: 9999px;
 }
 
@@ -50,7 +50,7 @@ html {
 
 body {
     /* Updated Anime Fonts */
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-main);
     line-height: 1.7;
@@ -59,7 +59,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     line-height: 1.3;
     letter-spacing: -0.01em;
     font-weight: normal; /* Mochiy is bold by default */
@@ -160,12 +160,12 @@ button {
    Utility Classes & Components
    ========================================================================== */
 .glass-panel {
-    background: var(--glass-bg);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
-    box-shadow: var(--glass-shadow);
+    box-shadow: 0 10px 40px 0 rgba(31, 38, 135, 0.05), inset 0 2px 20px rgba(255,255,255,0.9);
     position: relative;
     overflow: hidden;
 }
@@ -180,14 +180,15 @@ button {
 }
 
 .glass-card {
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     border: 1px solid rgba(255, 255, 255, 0.9);
     border-radius: var(--radius-md);
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+    box-shadow: 0 10px 30px rgba(31, 38, 135, 0.04), inset 0 2px 15px rgba(255,255,255,1);
     padding: 32px;
     position: relative;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card::before {
@@ -213,7 +214,7 @@ button {
     justify-content: center;
     gap: 8px;
     font-weight: 700;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     border-radius: var(--radius-pill);
     transition: var(--transition-fast);
 }
@@ -305,7 +306,7 @@ button {
     align-items: center;
     gap: 12px;
     font-size: 1.5rem;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     color: var(--text-main);
 }
 
@@ -323,10 +324,25 @@ button {
 .nav-links a {
     font-weight: 600;
     color: var(--text-muted);
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0; height: 2px;
+    bottom: 0; left: 0;
+    background-color: var(--pink);
+    transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: var(--pink);
+    color: var(--text-main);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .nav-actions {
@@ -368,7 +384,7 @@ button {
     gap: 32px;
     text-align: center;
     font-size: 1.8rem;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 /* ==========================================================================
@@ -485,7 +501,7 @@ button {
     align-items: center;
     gap: 12px;
     font-weight: 700;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
     border: 1px solid rgba(255,255,255,0.8);
     z-index: 3;
@@ -640,7 +656,7 @@ button {
 }
 
 .stat-label { font-size: 0.9rem; color: var(--text-muted); font-weight: 700;}
-.stat-value { font-size: 1.8rem; font-family: 'Outfit', sans-serif; }
+.stat-value { font-size: 1.8rem; font-family: 'Space Grotesk', sans-serif; }
 
 .content-row {
     display: grid;
@@ -662,7 +678,7 @@ button {
 }
 
 .contact-details { flex: 1; }
-.contact-details h4 { font-size: 1.1rem; font-family: 'Inter', sans-serif; font-weight: 700; }
+.contact-details h4 { font-size: 1.1rem; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; }
 .contact-details p { font-size: 0.9rem; color: var(--text-muted); }
 
 .memory-card {
@@ -711,6 +727,11 @@ button {
     color: var(--pink);
     margin-bottom: 24px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .feature-card h3 { margin-bottom: 16px; font-size: 1.4rem; }
@@ -746,7 +767,7 @@ button {
 
 .step-number {
     font-size: 1.5rem;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     color: var(--mint);
     text-shadow: 0 2px 10px rgba(168, 230, 207, 0.5);
 }
@@ -796,7 +817,7 @@ button {
 }
 
 .notification-mockup strong {
-    display: block; margin-bottom: 8px; color: var(--pink); font-family: 'Outfit', sans-serif; font-size: 1.1rem;
+    display: block; margin-bottom: 8px; color: var(--pink); font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem;
 }
 
 /* ==========================================================================
@@ -842,8 +863,9 @@ button {
 .quote { font-size: 1.1rem; font-style: italic; margin-bottom: 32px; flex-grow: 1; }
 
 .author { display: flex; align-items: center; gap: 20px; }
-.author-img, .avatar-placeholder { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
-.author-info strong { display: block; font-size: 1.05rem; font-family: 'Outfit', sans-serif;}
+.author-img, .avatar-placeholder { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.testimonial-card:hover .author-img, .testimonial-card:hover .avatar-placeholder { transform: scale(1.1) rotate(-3deg); }
+.author-info strong { display: block; font-size: 1.05rem; font-family: 'Space Grotesk', sans-serif;}
 .author-info span { font-size: 0.9rem; color: var(--text-muted); }
 
 /* ==========================================================================
@@ -858,7 +880,7 @@ button {
 .faq-question {
     width: 100%; text-align: left; padding: 32px 0;
     font-size: 1.25rem; font-weight: 700;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     display: flex; justify-content: space-between; align-items: center;
     color: var(--text-main);
 }
@@ -912,7 +934,7 @@ footer {
 .social-links { display: flex; gap: 20px; font-size: 1.8rem; }
 .social-links a:hover { color: var(--pink); transform: translateY(-3px); display: inline-block; transition: var(--transition-fast);}
 
-.footer-links h4 { margin-bottom: 32px; font-size: 1.3rem; font-family: 'Outfit', sans-serif;}
+.footer-links h4 { margin-bottom: 32px; font-size: 1.3rem; font-family: 'Space Grotesk', sans-serif;}
 .footer-links ul li { margin-bottom: 16px; }
 .footer-links a { color: var(--text-muted); font-size: 1.05rem; font-weight: 600;}
 .footer-links a:hover { color: var(--pink); }
@@ -984,20 +1006,21 @@ footer {
 .cursor-dot {
     width: 8px;
     height: 8px;
-    background-color: var(--pink);
+    background-color: white;
     border-radius: 50%;
     position: fixed;
     top: 0; left: 0;
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
-    transition: width 0.2s, height 0.2s;
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+    mix-blend-mode: difference;
 }
 
 .cursor-glow {
     width: 40px;
     height: 40px;
-    background-color: var(--pink-soft);
+    background-color: white;
     border-radius: 50%;
     position: fixed;
     top: 0; left: 0;
@@ -1006,6 +1029,8 @@ footer {
     transform: translate(-50%, -50%);
     transition: width 0.2s, height 0.2s, background-color 0.2s;
     filter: blur(4px);
+    mix-blend-mode: difference;
+    opacity: 0.3;
 }
 
 body:hover .cursor-dot, body:hover .cursor-glow {
@@ -1129,7 +1154,7 @@ body:hover .cursor-dot, body:hover .cursor-glow {
 }
 
 .loader-text {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 1.2rem;
     font-weight: 700;
     background: linear-gradient(90deg, var(--pink), var(--blue), var(--mint), var(--pink));
