@@ -1,5 +1,5 @@
-window.addEventListener('DOMContentLoaded', () => {
-    // Premium Preloader Logic
+// Premium Preloader Logic
+(function initPreloader() {
     const preloader = document.querySelector('.preloader');
     const progressBar = document.querySelector('.loader-progress-bar');
     const percentageText = document.querySelector('.loader-percentage');
@@ -27,7 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         }, 80);
     }
-});
+})();
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Mobile Menu Toggle
