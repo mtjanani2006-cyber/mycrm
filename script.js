@@ -1,31 +1,22 @@
-// Premium Preloader Logic
+// Ultra Premium Preloader Logic
 (function initPreloader() {
-    const preloader = document.querySelector('.preloader');
-    const progressBar = document.querySelector('.loader-progress-bar');
-    const percentageText = document.querySelector('.loader-percentage');
+    const preloader = document.getElementById('preloader');
     
-    if (preloader && progressBar && percentageText) {
-        let progress = 0;
+    if (preloader) {
         document.body.style.overflow = 'hidden';
-
-        const interval = setInterval(() => {
-            progress += Math.floor(Math.random() * 10) + 5;
-            if (progress >= 100) {
-                progress = 100;
-                clearInterval(interval);
-                
-                progressBar.style.width = '100%';
-                percentageText.innerText = '100%';
-                
-                setTimeout(() => {
-                    preloader.classList.add('slide-up');
-                    document.body.style.overflow = '';
-                }, 400);
-            } else {
-                progressBar.style.width = progress + '%';
-                percentageText.innerText = progress + '%';
-            }
-        }, 80);
+        
+        // Ensure minimum display time of 1.5 seconds for the premium loader
+        setTimeout(() => {
+            preloader.classList.add('loaded');
+            
+            // Allow scrolling after panels slide away (1.2s transition)
+            setTimeout(() => {
+                document.body.style.overflow = '';
+                // Optional: completely remove from DOM to keep it clean
+                // preloader.remove(); 
+            }, 1200);
+            
+        }, 1500);
     }
 })();
 
