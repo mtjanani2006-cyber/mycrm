@@ -1136,7 +1136,7 @@ body:hover .cursor-dot, body:hover .cursor-glow {
 }
 
 /* ==========================================================================
-   Ultra Premium Glass Preloader
+   Themed Premium Preloader — Mobile Safe, No Blank White Screen
    ========================================================================== */
 .preloader {
     position: fixed;
@@ -1148,74 +1148,173 @@ body:hover .cursor-dot, body:hover .cursor-glow {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Glassmorphism background */
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
-    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Solid themed gradient — NEVER blank white on any device */
+    background: linear-gradient(135deg, #f5f8ff 0%, #fce4f3 30%, #e8f4ff 60%, #e0faf2 100%);
+    overflow: hidden;
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .preloader.loaded {
     opacity: 0;
-    transform: scale(1.05);
+    transform: scale(1.04);
     pointer-events: none;
 }
 
+/* ---- Floating background blobs inside the loader ---- */
+.pre-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+    pointer-events: none;
+}
+
+.pre-blob-1 {
+    width: min(400px, 80vw);
+    height: min(400px, 80vw);
+    background: radial-gradient(circle, rgba(255, 203, 242, 0.7) 0%, rgba(255,203,242,0) 70%);
+    top: -10%;
+    right: -10%;
+    animation: pre-blob-drift 8s ease-in-out infinite alternate;
+}
+
+.pre-blob-2 {
+    width: min(350px, 70vw);
+    height: min(350px, 70vw);
+    background: radial-gradient(circle, rgba(168, 230, 207, 0.7) 0%, rgba(168,230,207,0) 70%);
+    bottom: -10%;
+    left: -10%;
+    animation: pre-blob-drift 10s ease-in-out infinite alternate-reverse;
+}
+
+.pre-blob-3 {
+    width: min(300px, 60vw);
+    height: min(300px, 60vw);
+    background: radial-gradient(circle, rgba(160, 196, 255, 0.6) 0%, rgba(160,196,255,0) 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pre-blob-pulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes pre-blob-drift {
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(30px, 30px) scale(1.1); }
+}
+
+@keyframes pre-blob-pulse {
+    0%   { transform: translate(-50%, -50%) scale(0.9); opacity: 0.5; }
+    100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.9; }
+}
+
+/* ---- Center loader content ---- */
 .loader-content {
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
+    gap: 20px;
 }
 
+/* ---- Glass orb ---- */
 .loader-glass-orb {
-    width: 100px;
-    height: 100px;
-    background: rgba(255, 255, 255, 0.6);
+    position: relative;
+    width: clamp(80px, 20vw, 110px);
+    height: clamp(80px, 20vw, 110px);
+    background: rgba(255, 255, 255, 0.55);
     border-radius: 50%;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    box-shadow: 0 15px 35px rgba(31, 38, 135, 0.1), inset 0 2px 20px rgba(255, 255, 255, 1);
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    box-shadow:
+        0 10px 40px rgba(255, 154, 200, 0.25),
+        inset 0 2px 20px rgba(255, 255, 255, 0.95);
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: orb-float 2s ease-in-out infinite alternate, orb-pulse 3s infinite alternate;
+    animation: orb-float 3s ease-in-out infinite alternate;
+}
+
+.loader-ring-outer {
+    position: absolute;
+    inset: -10px;
+    border-radius: 50%;
+    border: 2.5px solid transparent;
+    border-top-color: var(--pink);
+    border-right-color: var(--blue);
+    animation: ring-spin 1.8s linear infinite;
+}
+
+.loader-ring-inner {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-left-color: var(--mint);
+    border-bottom-color: var(--peach);
+    animation: ring-spin 1.2s linear infinite reverse;
 }
 
 .loader-brand-icon {
     font-family: 'Magra', sans-serif;
-    font-size: 3rem;
+    font-size: clamp(2rem, 6vw, 2.8rem);
     font-weight: 700;
-    color: var(--pink);
-    text-shadow: 0 2px 10px rgba(255, 154, 158, 0.4);
+    color: var(--text-main);
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(135deg, #ff9aaa, #a0c4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
+/* ---- Brand name ---- */
 .loader-text-wrapper {
     font-family: 'Magra', sans-serif;
-    font-size: 1.4rem;
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
     font-weight: 700;
-    letter-spacing: 0.4em;
+    letter-spacing: 0.35em;
     color: var(--text-main);
     text-transform: uppercase;
 }
 
 .loader-word {
     display: inline-block;
-    animation: text-glow 2s infinite alternate;
+    animation: loader-shimmer 2.5s ease-in-out infinite alternate;
+    background: linear-gradient(90deg, var(--text-main), #a0c4ff, #ffcbf2, var(--text-main));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200%;
+    animation: loader-shimmer 3s linear infinite;
+}
+
+/* ---- Tagline ---- */
+.loader-tagline {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    animation: fadeInUp 0.8s ease both;
+    animation-delay: 0.3s;
+    opacity: 0;
 }
 
 @keyframes orb-float {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(-15px); }
+    0%   { transform: translateY(0px); }
+    100% { transform: translateY(-12px); }
 }
 
-@keyframes orb-pulse {
-    0% { box-shadow: 0 15px 35px rgba(31, 38, 135, 0.1), inset 0 2px 20px rgba(255, 255, 255, 1); }
-    100% { box-shadow: 0 20px 45px rgba(255, 154, 158, 0.3), inset 0 2px 30px rgba(255, 255, 255, 1); }
+@keyframes ring-spin {
+    to { transform: rotate(360deg); }
 }
 
-@keyframes text-glow {
-    0% { opacity: 0.6; filter: blur(1px); }
-    100% { opacity: 1; filter: blur(0px); text-shadow: 0 0 15px rgba(255,255,255,0.8); }
+@keyframes loader-shimmer {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
 }
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+

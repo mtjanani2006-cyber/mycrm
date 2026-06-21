@@ -1,24 +1,39 @@
-// Ultra Premium Preloader Logic
+// Themed Premium Preloader — Reliable on All Devices
 (function initPreloader() {
-    const preloader = document.getElementById('preloader');
-    
-    if (preloader) {
-        document.body.style.overflow = 'hidden';
-        
-        // Ensure minimum display time of 1.5 seconds for the premium loader
-        setTimeout(() => {
-            preloader.classList.add('loaded');
-            
-            // Allow scrolling after panels slide away (1.2s transition)
-            setTimeout(() => {
-                document.body.style.overflow = '';
-                // Optional: completely remove from DOM to keep it clean
-                // preloader.remove(); 
-            }, 1200);
-            
-        }, 1500);
+    // Run as early as possible — no waiting for load events
+    var preloader = document.getElementById('preloader');
+    if (!preloader) return;
+
+    // Lock scroll while loader is visible
+    document.body.style.overflow = 'hidden';
+
+    function dismissLoader() {
+        preloader.classList.add('loaded');
+        // Unlock scroll after the CSS transition finishes (0.9s)
+        setTimeout(function () {
+            document.body.style.overflow = '';
+            preloader.style.display = 'none'; // fully hide so it never blocks taps
+        }, 950);
     }
+
+    // Show loader for at least 1.8 seconds — then check if page is ready
+    var minTimer = false;
+    var pageReady = false;
+
+    setTimeout(function () {
+        minTimer = true;
+        if (pageReady) dismissLoader();
+    }, 1800);
+
+    window.addEventListener('load', function () {
+        pageReady = true;
+        if (minTimer) dismissLoader();
+    });
+
+    // Safety fallback: always dismiss after 4s no matter what
+    setTimeout(dismissLoader, 4000);
 })();
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Mobile Menu Toggle
