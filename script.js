@@ -1,3 +1,12 @@
+window.addEventListener('load', () => {
+    const preloader = document.querySelector('.preloader');
+    if (preloader) {
+        setTimeout(() => {
+            preloader.classList.add('fade-out');
+        }, 800); // 800ms delay to show off the premium loader
+    }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Mobile Menu Toggle
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -86,4 +95,99 @@ document.addEventListener('DOMContentLoaded', () => {
             navbar.style.boxShadow = 'var(--glass-shadow)';
         }
     });
+
+    // 5. High-End 3D Tilt Effect for Glass Cards
+    const glassCards = document.querySelectorAll('.glass-card');
+    glassCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = ((y - centerY) / centerY) * -8; // Max 8 deg
+            const rotateY = ((x - centerX) / centerX) * 8;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            card.style.transition = 'none';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            card.style.transition = 'transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)';
+        });
+    });
+
+    // 6. Magnetic Buttons
+    const magneticBtns = document.querySelectorAll('.btn-primary, .btn-secondary, .btn-ghost');
+    magneticBtns.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            btn.style.transition = 'transform 0.1s ease-out';
+        });
+        
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0, 0)';
+            btn.style.transition = 'transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)';
+        });
+    });
+
+    // 7. Custom Cursor
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorGlow = document.querySelector('.cursor-glow');
+
+    if (cursorDot && cursorGlow) {
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            // Dot follows exactly
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+
+            // Glow follows with a slight delay
+            cursorGlow.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
+
+        // Hover effect for interactive elements
+        const interactiveElements = document.querySelectorAll('a, button, .sidebar-item, .contact-list-item');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorDot.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                cursorGlow.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                cursorGlow.style.backgroundColor = 'rgba(168, 230, 207, 0.5)'; // Mint
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursorGlow.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursorGlow.style.backgroundColor = 'var(--pink-soft)';
+            });
+        });
+    }
+
+    // 8. Background Floating Shapes Parallax
+    const shapes = document.querySelectorAll('.floating-shape');
+    if (shapes.length > 0) {
+        window.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+
+            shapes.forEach(shape => {
+                const speed = parseFloat(shape.getAttribute('data-speed')) || 1;
+                const x = (mouseX * 50 * speed);
+                const y = (mouseY * 50 * speed);
+                
+                shape.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+    }
 });

@@ -6,10 +6,10 @@
     <title>MyCRM - Never lose touch with people who matter</title>
     <meta name="description" content="MyCRM is a beautiful, personal relationship management tool. Keep track of friendships, networking, and personal connections.">
     
-    <!-- Google Fonts: Anime Style -->
+    <!-- Google Fonts: Premium Modern -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Mochiy+Pop+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -18,6 +18,18 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">Loading MyCRM...</div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-glow"></div>
+
 
     <!-- Aurora Background -->
     <div class="aurora-bg">
@@ -67,6 +79,11 @@
         <section class="hero" id="home">
             <div class="container hero-container">
                 <div class="hero-content">
+                    <!-- Floating Shapes -->
+                    <div class="floating-shape shape-1" data-speed="2"></div>
+                    <div class="floating-shape shape-2" data-speed="-1.5"></div>
+                    <div class="floating-shape shape-3" data-speed="1.2"></div>
+
                     <div class="badge">
                         <span class="badge-dot"></span> New: AI-Powered Insights
                     </div>
