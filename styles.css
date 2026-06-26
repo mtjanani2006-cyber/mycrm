@@ -899,6 +899,7 @@ button {
 
 .author { display: flex; align-items: center; gap: 20px; }
 .author-img, .avatar-placeholder { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.avatar-placeholder { display: flex; align-items: center; justify-content: center; font-weight: bold; }
 .testimonial-card:hover .author-img, .testimonial-card:hover .avatar-placeholder { transform: scale(1.1) rotate(-3deg); }
 .author-info strong { display: block; font-size: 1.05rem; font-family: 'Magra', sans-serif;}
 .author-info span { font-size: 0.9rem; color: var(--text-muted); }
